@@ -3,6 +3,16 @@ import { initialFacts, CATEGORIES } from "./App";
 import { Fact } from "./Fact";
 
 function FactList({ facts }) {
+  if (facts.length === 0) {
+    return (
+      <div>
+        <p className="message"> No facts available for this category!</p>
+        <p className="message">
+          Click on "SHARE A FACT" to add the first one 😉
+        </p>
+      </div>
+    );
+  }
   return (
     <section>
       <ul className="facts-list">
