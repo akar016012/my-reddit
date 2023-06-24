@@ -2,7 +2,7 @@ import { useState } from "react";
 import { initialFacts, CATEGORIES } from "./App";
 import { Fact } from "./Fact";
 
-function FactList({ facts }) {
+function FactList({ facts, setFacts }) {
   if (facts.length === 0) {
     return (
       <div>
@@ -17,7 +17,7 @@ function FactList({ facts }) {
     <section>
       <ul className="facts-list">
         {facts.map((fact) => (
-          <Fact key={fact.id} fact={fact} />
+          <Fact key={fact.id} fact={fact} setFacts={setFacts} />
         ))}
       </ul>
       <p>There are {facts.length} facts in the database. Add your own! </p>
