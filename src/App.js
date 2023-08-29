@@ -54,9 +54,17 @@ function App() {
       {/* Header  */}
       <header className="header">
         <div className="logo">
-          <img src="donut.png" alt="Chat app logo" />
           <h1>My Reddit App</h1>
         </div>
+        <button className="btnD3 btn-large">
+          <a
+            className="d3link"
+            href="https://ashy-ocean-0a5569c10.3.azurestaticapps.net/"
+            target="_blank"
+          >
+            D3 Project
+          </a>
+        </button>
         <button
           className="btn btn-large"
           id="share-button"

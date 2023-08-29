@@ -19,6 +19,16 @@ export const Fact = ({ fact, setFacts }) => {
     setIsUpdating(false);
   }
 
+  async function handleDelete() {
+    setIsUpdating(true);
+    const { data: updatedFact, error } = await supabase
+      .from("facts")
+      .delete()
+      .eq("id", fact.id);
+    if (!error) window.location.reload();
+    setIsUpdating(false);
+  }
+
   return (
     <li className="fact">
       <p>
@@ -53,6 +63,9 @@ export const Fact = ({ fact, setFacts }) => {
         </button>
         <button onClick={() => handleVote("votesfalse")} disabled={isUpdating}>
           ⛔<p>{isUpdating ? ".." : fact.votesfalse}</p>
+        </button>
+        <button onClick={() => handleDelete()}>
+          ❌<p>{isUpdating ? ".." : ""}</p>
         </button>
       </div>
     </li>
